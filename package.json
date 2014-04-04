@@ -1,0 +1,11 @@
+{
+  "name": "widget_factory_test",
+  "version":"0.1.20140403",
+  "description": "A website where you can enter in two types of factory widgets",
+  "author": "Rob Kohr <robkohr@gmail.com>",
+  "dependencies": {
+    "express": "*",
+    "ejs":"*",
+    "mongodb":"*"
+  }
+}
