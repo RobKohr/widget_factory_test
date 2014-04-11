@@ -1,0 +1,24 @@
+<h4>
+Filter by type:
+   <ul>
+   <% for(var i = 0; i<widget_factory.widget_types.length; i++) { %>
+      <% var t = widget_factory.widget_types[i] %>
+      <% if((typeof(widget_type)!='undefined') && (widget_type==t)){ %>
+        <li><a href="?widget_type=<%=t%>"><%=t%></a></li>
+      <% } else { %>
+        <li><a href="?widget_type=<%=t%>"><%=t%></a></li>
+      <% } %>
+   <% } %>
+   </ul>
+
+<% for(var i = 0; i < widgets.length; i++) { %>
+   <% var widget = widgets[i] %>
+   <table border="1">
+   <% for(var key in widget) { %>
+      <tr><th align="right"><%=key%></th><td><%=widget[key]%></td><tr>
+   <% } /* end for key in widget */ %>
+   </table>
+   <hr>
+<% } /* end for widgets.length */ %>
+
+

@@ -6,6 +6,7 @@
   "dependencies": {
     "express": "*",
     "ejs":"*",
-    "mongodb":"*"
+    "mongodb":"*",
+    "body-parser":"*"
   }
 }

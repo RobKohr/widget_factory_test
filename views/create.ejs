@@ -1,0 +1,27 @@
+<% if(typeof(widget_type)=='undefined') { %>
+   <h3>What type of widget would you like to create?</h3>
+   <ul>
+   <% for(var i = 0; i<widget_factory.widget_types.length; i++) { %>
+      <% var t = widget_factory.widget_types[i] %>
+      <li><a href="?widget_type=<%=t%>"><%=t%></a></li>
+   <% } %>
+   </ul>
+<% } else { /* begin widget_type is definded */ %> 
+   <form method="post">
+      	 <p>
+	   <label for="widget_type">Widget Type</label>
+	   <span style="font-weight:bold"><%=widget_type%></span>
+	 </p>
+   	 <input type="hidden" name="widget_type" value="<%=widget_type%>">
+	 <% var fields = widget_factory.get_fields(widget_type) %>
+	 <% for(var i = 0; i<fields.length; i++){ %>
+	    <% var field = fields[i] %>
+	    <p>
+	      <label for="<%=field%>"><%=field%></label>
+	      <input type="text" name="<%=field%>" />
+	    </p>
+	 <% } %>
+	 <input type="submit" value="submit" />
+   </form>
+
+<% } /* end widget_type is defined */ %>
