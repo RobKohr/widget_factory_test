@@ -14,7 +14,7 @@ npm install; // install project dependencies.
 node app.js //to run
 
 
-# Projet Description
+# Project Description
 
 ## Details
 
