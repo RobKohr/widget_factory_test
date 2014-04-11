@@ -12,11 +12,17 @@ var widget_factory = require(__dirname + '/public/widget_factory.js');
 var bodyParser = require('body-parser');
 app.use(bodyParser());
 
+//all requests will hit this first before processing the request
 var start =  function(req, res, next){
     res.data = {};//data for template
     res.data.widget_factory = widget_factory;
     return next();
 }
+
+/*
+  This is the final step in all requests. It assembles the head, body and footer and sends 
+  them to the client.
+*/
 var render = function(req, res, next){
     res.render('header.ejs', res.data, function(err, head){
         res.render(res.template, res.data, function(err, body){
@@ -27,11 +33,13 @@ var render = function(req, res, next){
     })
 }
 
+//homepage
 app.get('/', start, function(req, res, next){
     res.data.title = 'Home';
     res.template = 'index.ejs';
     return next();
 }, render);
+
 
 app.get('/create', start, function(req, res, next){
     res.data.title = 'Create A Widget';
@@ -74,19 +82,19 @@ app.get('/list', start, function(req, res, next){
 }, render);
 
 
+//Connect to the database
 var MongoClient = require('mongodb').MongoClient;
 MongoClient.connect('mongodb://127.0.0.1:27017/widget_factory', function(err, db) {
     if(err) throw err;
+
+    //give a pointer to the collection that the widget factory will be working with
     var widgets = db.collection('widget');
     widget_factory.init({collection:widgets});
-
     
     //Startup server... we only want this to happen when db is already connected
+    // hence why it is in the Mongo connect callback
     var server = app.listen(config.port, function() {
 	console.log('Listening on port %d', server.address().port);
     });
 
 })
-
-
-
