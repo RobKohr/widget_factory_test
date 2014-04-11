@@ -15,7 +15,10 @@ app.use(bodyParser());
 //all requests will hit this first before processing the request
 var start =  function(req, res, next){
     res.data = {};//data for template
+
+    //add this to template data so functions/properties are available in templates
     res.data.widget_factory = widget_factory;
+
     return next();
 }
 
