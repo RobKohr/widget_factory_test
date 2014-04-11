@@ -4,9 +4,9 @@
   "description": "A website where you can enter in two types of factory widgets",
   "author": "Rob Kohr <robkohr@gmail.com>",
   "dependencies": {
-    "express": "*",
-    "ejs":"*",
-    "mongodb":"*",
-    "body-parser":"*"
+    "express": "4.0.0",
+    "ejs":"1.0.0",
+    "mongodb":"1.4.0",
+    "body-parser":"1.0.1"
   }
 }
