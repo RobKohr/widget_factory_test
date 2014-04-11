@@ -4,8 +4,11 @@ var app = express();
 app.engine('html', require('ejs').__express);
 app.use(express.static(__dirname + '/public'));
 var widget_factory = require(__dirname + '/public/widget_factory.js');
-//widget factory is in public directory so it can be used by node and client
-
+/*
+  widget factory is in public directory so it can be used by node and client
+  This isn't used on the front end in this project, but I could see the module being
+  used for validation and other things on the front end if this was a fleshed out project
+*/
 var bodyParser = require('body-parser');
 app.use(bodyParser());
 
