@@ -71,11 +71,6 @@ app.get('/list', start, function(req, res, next){
 }, render);
 
 
-var widget_fields = ['sku', 'length', 'width', 'height'];
-var aa = widget_fields.concat(['weight', 'color']);
-var bb = widget_fields.concat(['material', 'expiration_date']);
-
-
 var MongoClient = require('mongodb').MongoClient;
 MongoClient.connect('mongodb://127.0.0.1:27017/widget_factory', function(err, db) {
     if(err) throw err;
