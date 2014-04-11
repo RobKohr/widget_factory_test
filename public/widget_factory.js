@@ -12,7 +12,8 @@ logic.
 */
 
 var widget_factory = {};
-if(exports){
+if(typeof(exports)!='undefined'){
+    //if exports exist then this is running in node.js
     widget_factory = exports;
 }
 
