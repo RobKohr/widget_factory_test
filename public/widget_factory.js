@@ -1,3 +1,16 @@
+/*
+
+* Manages the fields for the different widget types.
+* Deals with saving and loading widgets
+
+If this was developed further, it would contain more functions around managing widgets.
+
+It is put in the public directory so if anything was needed on the front end, it would be 
+accessible there as a global singleton and the front and back end could share the same
+logic.
+
+*/
+
 var widget_factory = {};
 if(exports){
     widget_factory = exports;
