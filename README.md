@@ -7,9 +7,9 @@
 
 ## Setup
 
-Use config.json to set the port for the app
+Edit config.json to set the port for the app (default is 1234)
 
-npm install; // install project dependencies. Mongodb must already be installed and running
+npm install; // install project dependencies. 
 
 node app.js //to run
 
